@@ -47,3 +47,9 @@ This project fine-tunes advanced multimodal models, ViLT and BLIP-2, for medical
     - F1 score: **0.7957**.
     - Exact Match (EM): **75.77%**.
 
+### 5. **Building a Front-End Application**
+- Developed a **VQA App** using **Streamlit** for an interactive and user-friendly interface.
+- Features:
+  - Upload medical images and input questions for real-time inference.
+  - Visualize model predictions and responses dynamically.
+  - Accessible and deployable for demonstrations or real-world use cases.
