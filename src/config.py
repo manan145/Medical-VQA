@@ -18,5 +18,4 @@ CONFIG = {
     "save_steps": 100,
     "output_dir": f"{MOUNT_PATH}/blip2_lora_vqa_model",
     "cache_dir": f"{MOUNT_PATH}/cache_dir",
-    "max_length": 128
 }
