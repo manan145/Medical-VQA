@@ -32,7 +32,7 @@ This project fine-tunes advanced multimodal models, ViLT and BLIP-2, for medical
     - Alpha: 32
     - Dropout: 0.1
 - **Hyperparameters**:
-  - Batch size: 64
+  - Batch size: 64 for both models
   - Learning rate: 2e-3 (BLIP-2) | 2e-5 (ViLT)
   - Epochs: 10 (BLIP-2) | 3 (ViLT)
 - Used **mixed-precision training (FP16)** to optimize resource usage.
