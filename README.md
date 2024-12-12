@@ -53,3 +53,5 @@ This project fine-tunes advanced multimodal models, ViLT and BLIP-2, for medical
   - Upload medical images and input questions for real-time inference.
   - Visualize model predictions and responses dynamically.
   - Accessible and deployable for demonstrations or real-world use cases.
+ 
+![VQA Interface](web_app.png)
