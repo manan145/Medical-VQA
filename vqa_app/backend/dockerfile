@@ -1,0 +1,23 @@
+FROM --platform=linux/amd64 python:3.10-slim-bullseye
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install peft if not already in requirements.txt
+RUN pip install peft
+
+# Load the base model and then the LoRA adapter
+RUN python -c "\
+from transformers import Blip2ForConditionalGeneration, AutoProcessor;\
+from peft import PeftModel;\
+base_model = Blip2ForConditionalGeneration.from_pretrained('Salesforce/blip2-flan-t5-xl', force_download=True);\
+processor = AutoProcessor.from_pretrained('Salesforce/blip2-flan-t5-xl', force_download=True);\
+model = PeftModel.from_pretrained(base_model, 'manan145/blip2_lora_vqa_model', force_download=True);\
+"
+
+COPY . .
+EXPOSE 8080
+# RUN python -c "python -m uvicorn main:app --host=0.0.0.0 --port;"
+CMD ["python", "-m", "uvicorn", "main:app", "--host=0.0.0.0", "--port=8080"]

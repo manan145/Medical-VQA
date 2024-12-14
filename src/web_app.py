@@ -32,7 +32,7 @@ if uploaded_image:
     st.session_state["image"] = Image.open(uploaded_image)
     st.session_state["question"] = None
     st.session_state["answer"] = None
-    st.image(st.session_state["image"], caption="Uploaded Image",use_container_width=True)
+    st.image(st.session_state["image"], caption="Uploaded Image")
 
 # Ask a question if the image is uploaded
 if st.session_state["image"]:
