@@ -99,6 +99,14 @@ The VQA app was deployed using a combination of **Google Cloud Platform (GCP)** 
    - The frontend communicates with the backend by sending HTTP requests to the Cloud Run API URL.
 
 ---
+#### Try the App
+
+You can try the application live on Hugging Face Spaces:
+
+👉 [Medical VQA Application](https://huggingface.co/spaces/manan145/Medical-VQA)
+
+
+---
 
 #### Deployment Benefits
 - **Scalable Backend:** Google Cloud Run ensures the backend scales automatically based on demand.
