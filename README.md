@@ -47,11 +47,66 @@ This project fine-tunes advanced multimodal models, ViLT and BLIP-2, for medical
     - F1 score: **0.7957**.
     - Exact Match (EM): **75.77%**.
 
-### 5. **Building a Front-End Application**
-- Developed a **VQA App** using **Streamlit** for an interactive and user-friendly interface.
-- Features:
-  - Upload medical images and input questions for real-time inference.
-  - Visualize model predictions and responses dynamically.
-  - Accessible and deployable for demonstrations or real-world use cases.
+### 5. Visual Question Answering (VQA) App
+
+This Visual Question Answering (VQA) application allows users to upload medical radiology images, ask questions about them, and receive AI-generated answers. It provides a seamless interface for interpreting and querying visual content in medical images, such as X-rays or MRIs.
+
+The VQA app was deployed using a combination of **Google Cloud Platform (GCP)** for the backend and **Hugging Face Spaces** for the frontend:
+
+---
+
+#### 1. Backend Deployment on Google Cloud Platform (GCP)
+- **Containerization with Docker:**
+  - The backend, built with FastAPI, was containerized using Docker to create a portable and scalable application.
+  - The container includes the model and code for handling image uploads and answering user questions.
+  
+- **Hosting on Cloud Run:**
+  - The Docker image was pushed to Google Container Registry (GCR).
+  - Using **Google Cloud Run**, the container was deployed as a serverless, managed service.
+  - Cloud Run provided a public URL for accessing the backend, ensuring scalability and low maintenance.
+
+- **Endpoints Provided by the Backend:**
+  - `/upload_image`: Accepts a medical image, processes it, and returns an `image_id`.
+  - `/ask_question`: Accepts an `image_id` and a question, and returns the AI-generated answer.
+
+---
+
+#### 2. Frontend Deployment on Hugging Face Spaces
+- **Frontend Design with Streamlit:**
+  - The frontend is a Streamlit application providing a user-friendly interface.
+  - Users can upload images, submit questions, and receive answers from the backend.
+
+- **Hosting on Hugging Face Spaces:**
+  - The frontend was hosted on **Hugging Face Spaces**, a platform for hosting machine learning demos.
+  - The Streamlit app communicates with the backend using the public API endpoint deployed on GCP.
+  - Hugging Face Spaces provides a shareable, interactive environment for users to test the app.
+
+---
+
+#### Workflow Summary
+1. **Backend Workflow:**
+   - The FastAPI backend processes incoming requests via two endpoints:
+     - Upload an image: Returns a unique identifier for the image (`image_id`).
+     - Answer a question: Processes the question and image using the AI model and returns an answer.
+
+2. **Frontend Workflow:**
+   - The Streamlit frontend allows users to:
+     - Upload a medical image.
+     - Interact with the image by asking questions.
+     - Display the image and the AI-generated answers.
+
+3. **Integration:**
+   - The frontend communicates with the backend by sending HTTP requests to the Cloud Run API URL.
+
+---
+
+#### Deployment Benefits
+- **Scalable Backend:** Google Cloud Run ensures the backend scales automatically based on demand.
+- **User-Friendly Frontend:** Hugging Face Spaces simplifies deployment of the Streamlit UI, allowing users to easily access the app via a web interface.
+- **Modularity:** The separation of backend (API) and frontend (UI) enables flexibility in maintaining and upgrading the application.
+- **Accessibility:** A publicly accessible URL from both Cloud Run and Hugging Face Spaces ensures easy sharing and usage.
+
+---
+
  
 ![VQA Interface](web_app.png)
