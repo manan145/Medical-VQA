@@ -106,15 +106,6 @@ You can try the application live on Hugging Face Spaces:
 👉 [Medical VQA Application](https://huggingface.co/spaces/manan145/Medical-VQA)
 
 
----
-
-#### Deployment Benefits
-- **Scalable Backend:** Google Cloud Run ensures the backend scales automatically based on demand.
-- **User-Friendly Frontend:** Hugging Face Spaces simplifies deployment of the Streamlit UI, allowing users to easily access the app via a web interface.
-- **Modularity:** The separation of backend (API) and frontend (UI) enables flexibility in maintaining and upgrading the application.
-- **Accessibility:** A publicly accessible URL from both Cloud Run and Hugging Face Spaces ensures easy sharing and usage.
-
----
 
  
 ![VQA Interface](web_app.png)
